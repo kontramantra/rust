@@ -573,7 +573,7 @@ mod tests {
     #[cfg(all(unix, not(target_os="android")))]
     #[test]
     fn signal_reported_right() {
-        use os::unix::ExitStatusExt;
+        use os::unix::process::ExitStatusExt;
 
         let p = Command::new("/bin/sh").arg("-c").arg("kill -9 $$").spawn();
         assert!(p.is_ok());
